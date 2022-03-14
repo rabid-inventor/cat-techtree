@@ -1,17 +1,167 @@
 {
-    "type":"resource"
+    "techTree":[
+                {
+                    "coinType" : "resource",
+                    "coinTypeID" : 1,
+                    "coinCATID" : "",
+                    "pubKey" : "",
+                    "coins":
+                        [
+                            {
+                                "coinID":"2",
+                                "coinName":"Forest",
+                                "genID":"",
+                                "prerequistesNeed":false,
+                                "defaultAmount":1000,
+                                "requires":[
+                                    {
+                                        "":""
+                                    }
+                                ],
+                                "creates":[
+                                    {
+                                    "coinTypeID":"1",    
+                                    "coinID":"2",
+                                    
+                                    "info":"Resource coins recreate themselves unless the resource is completely exhusted"
+                                
+                                    },
+
+                                    {
+                                    "coinTypeID":"2",    
+                                    "coinID":"2",
+                                    
+                                    "info":"consumable created here"
+
+                                    }
+                                ],
+                                "modifierHash":"",
+                                "maxModifier" :10,
+                                "stuff1" :"",
+                                "stuff2" :""
 
 
-        
-        {
-            "ID":"",
-            "name":"",
-            "delta":""
 
+
+                            }
+                        ]
+
+                },
+                {
+                    "coinType" : "consumable",
+                    "coinTypeID" : 2,
+                    "coinCATID" : "",
+                    "pubKey" : "",
+                    "coins":
+                        [
+                            {
+                                "coinID":"2",
+                                "coinName":"Wood",
+                                "genID":"",
+                                "prerequistesNeed":false,
+                                "defaultAmount":1,
+                                "requires":[
+                                    {
+                                        "":""
+                                    }
+                                ],
+
+                                "creates":[
+                                    {
+                                    "coinTypeID":"1",    
+                                    "coinID":"2",
+                                    
+                                    "info":"Resource coins recreate themselves unless the resource is completely exhusted"
+                                
+                                    },
+
+                                    {
+                                    "coinTypeID":"2",    
+                                    "coinID":"2",
+                                    
+                                    "info":"consumable created here"
+
+                                    }
+                                ],
+                                "modifierHash":"",
+                                "maxModifier" :10,
+                                "stuff1" :"",
+                                "stuff2" :"",
+                                "attributes":{
+                                    "attack":1,
+                                    "defence":0,
+                                    "speed":0,
+                                    "intelegence":0
+                                }
+
+
+
+
+                            }
+                        ]
+
+                },
+                {
+                    "coinType" : "item",
+                    "coinTypeID" : 3,
+                    "coinCATID" : "0xdeadbeef3",
+                    "pubKey" : "",
+                    "coins":
+                        [
+                            {
+                                "coinID":"2",
+                                "coinName":"Spear",
+                                "genID":"",
+                                "prerequistesNeed":false,
+                                "defaultAmount":1,
+                                "requires":[
+                                    {
+                                        "":""
+                                    }
+                                ],
+                                
+                                "creates":[
+                                    {
+                                    "coinTypeID":"1",    
+                                    "coinID":"2",
+                                    
+                                    "info":"Resource coins recreate themselves unless the resource is completely exhusted"
+                                
+                                    },
+
+                                    {
+                                    "coinTypeID":"2",    
+                                    "coinID":"2",
+                                    
+                                    "info":"consumable created here"
+
+                                    }
+                                ],
+                                "attributes":{
+                                    "attack":1,
+                                    "defence":0,
+                                    "speed":0,
+                                    "intelegence":0
+                                },
+                                "modifierHash":"",
+                                "maxModifier" :10,
+                                "stuff1" :"",
+                                "stuff2" :""
+
+
+
+
+                            }
+                        ]
+
+                }
+            ],
+            "notes":" type 1 Resource type 2=consumable coinTypeID 3=item coinTypeID=4 Blueprint "
+
+
+            
 
         }
 
         
-    "t"
-
-}
+    
