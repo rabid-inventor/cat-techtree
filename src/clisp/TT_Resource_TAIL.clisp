@@ -1,0 +1,15 @@
+;Resource can be spent to create base consumables
+;when spent creates +1 base comsumable * valid modifier
+;also recreates itself - created consumable
+
+;things to think about how to achieve a valid modifier
+
+
+
+(mod
+include ../condition_code.clib
+
+
+(CREATE_COIN ConsumablePuzzleHASH ModifiedAmount)
+(CREATE_COIN SelfPuzHASH OGamount - ModifiedAmount)
+)
