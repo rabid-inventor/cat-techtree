@@ -3,13 +3,57 @@
 ;also recreates itself - created consumable
 
 ;things to think about how to achieve a valid modifier
+;using Genesis by coin ID as a template
 
 
+(mod (
+      GENESIS_ID
+      MOD_ACCESS_HASH
+      CONSUMABLE_CREATED
+      Truths
+      parent_is_cat
+      lineage_proof
+      delta
+      inner_conditions
+      (
+        delegated_puzzle
+        delegated_solution
+      )
+    )
 
-(mod 
-include "../condition_code.clib"
+    (include cat_truths.clib)
 
+    ; "is_hidden_puzzle_correct" returns true if the hidden puzzle is correctly encoded
+    ; Taken from standard transaction 
 
-(CREATE_COIN ConsumablePuzzleHASH ModifiedAmount)
-(CREATE_COIN SelfPuzHASH OGamount - ModifiedAmount)
+    (defun-inline is_hidden_puzzle_correct (synthetic_public_key original_public_key delegated_puzzle)
+      (=
+          synthetic_public_key
+          (point_add
+              original_public_key
+              (pubkey_for_exp (sha256 original_public_key (sha256tree1 delegated_puzzle)))
+          )
+      )
+    )
+
+    (if delta
+        ;when resource is spend with a delta i need to check a valid set of condition has been issued
+        ;most of below are placeholders
+        (
+            (if (= 1 1)
+            (list
+                (list CREATE_COIN CONSUMABLE_CREATED amount)
+                (list CREATE_COIN 0x00 -113  )
+                (list ASSERT_PUZZLE_ANNOUNCEMENT MOD_ACCESS_HASH) ;this makes sure that there is a valid modifier coin being spent with this transaction
+                (list CREATE_PUZZLE_ANNOUNCEMENT amount); allows the modifier coin to check thwe correct amount is being spent
+            )
+            (x) ;fail if conditions are not delat conditions are not met
+            )
+        )
+        (if (= (my_parent_cat_truth Truths) GENESIS_ID)
+          ()
+          (x)
+        )
+    )
+
 )
