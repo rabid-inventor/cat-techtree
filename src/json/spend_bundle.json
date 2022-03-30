@@ -1,0 +1,23 @@
+Spend Bundle: {
+    "aggregated_signature": "",
+    "coin_solutions": [
+        {
+            "coin": {
+                "amount": 0,
+                "parent_coin_info": "",
+                "puzzle_hash": ""
+            },
+            "puzzle_reveal": "",
+            "solution": ""
+        },
+        {
+            "coin": {
+                "amount": 0,
+                "parent_coin_info": "",
+                "puzzle_hash": ""
+            },
+            "puzzle_reveal": "",
+            "solution": ""
+        }
+    ]
+}
