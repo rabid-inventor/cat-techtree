@@ -4,9 +4,11 @@ import sys
  
 # appending the directory of mod.py
 # in the sys.path list
-sys.path.append('../src/') 
+sys.path.append('/home/geeus81/chiadev/git/cat-techtree/src/') 
 
 from techtree import *
+
+evo = techTree(techTreeName="BasicEvo")
 
 
 #testcoin set 
@@ -30,7 +32,7 @@ itemSFAxe = techTreeCoin(9, treeName="Sharped Flint Axe", coinType=coinTypes.ite
 #create some links 
 
 
-linkresForest = techTreeLinks(resForest, requiredCoins=[0], producedCoins=[1, 4], modifierCoins=[1,10])
+linkresForest = techTreeLinks(resForest, requiredCoins=[0], producedCoins=[4], modifierCoins=[10])
 
 
 def test_resouce_coin():
@@ -39,8 +41,14 @@ def test_resouce_coin():
     assert coinTypes.getTypeName(resForest.coinType) == "Resource"
 
 
+def test_coin_deps():
+    evo.addLinkedCoin(linkresForest)
+    grabbedCoin = evo.getCoinById(linkresForest.coinID)
+    assert grabbedCoin.coinName == "Forest"
+    
 
 
 
 #run tests 
 test_resouce_coin()
+test_coin_deps()
